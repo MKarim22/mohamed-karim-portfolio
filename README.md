@@ -1,4 +1,5 @@
 # Mohamed Karim — Creative Director & Marketing Manager
+![Portfolio Preview](https://mkarim22.github.io/mohamed-karim-portfolio/images/behance.png)
 
 A personal portfolio website showcasing creative direction, marketing leadership, and digital strategy projects across airlines, tourism, retail, and F&B sectors.
 
