@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohamed Karim — Creative Director & Marketing Manager</title>
+  <meta name="description" content="Portfolio of Mohamed Karim — Creative Director & Marketing Manager. Performance Marketing, Branding, Digital Media, Kuwait & MENA.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -16,7 +17,6 @@
       --radius: 12px;
       --shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -25,7 +25,6 @@
       color: var(--text);
       line-height: 1.7;
     }
-
     header {
       position: sticky;
       top: 0;
@@ -34,7 +33,6 @@
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-
     nav {
       max-width: 1150px;
       margin: 0 auto;
@@ -43,14 +41,13 @@
       justify-content: space-between;
       padding: 1rem 1.5rem;
     }
-
     nav h1 {
       font-weight: 700;
       background: linear-gradient(90deg, var(--violet), var(--teal));
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
-
     nav a {
       color: var(--muted);
       text-decoration: none;
@@ -71,20 +68,18 @@
       padding: 0 20px;
       flex-wrap: wrap;
     }
-
     .hero img {
       width: 250px;
       height: 250px;
       border-radius: var(--radius);
       object-fit: cover;
       box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.06);
     }
-
     .hero-content {
       flex: 1;
       min-width: 280px;
     }
-
     .hero-content h2 {
       font-size: 2rem;
       font-weight: 700;
@@ -93,12 +88,10 @@
       color: transparent;
       margin-bottom: 10px;
     }
-
     .hero-content p {
       color: var(--muted);
       margin-bottom: 20px;
     }
-
     .btn {
       display: inline-block;
       background: linear-gradient(90deg, var(--violet), var(--teal));
@@ -109,41 +102,32 @@
       font-weight: 600;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
-
     .btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-    /* Sections */
     section {
       max-width: 1100px;
       margin: 70px auto;
       padding: 0 20px;
     }
-
     h3 {
       font-size: 1.4rem;
       color: var(--violet);
       margin-bottom: 12px;
       font-weight: 600;
     }
-
     .card {
       background: var(--card);
       border-radius: var(--radius);
       padding: 20px;
       box-shadow: var(--shadow);
       margin-bottom: 30px;
-      animation: fadeUp 1s ease both;
+      border: 1px solid rgba(255,255,255,0.05);
     }
-
     .timeline {
       border-left: 2px solid var(--violet);
       padding-left: 20px;
     }
-
-    .job {
-      margin-bottom: 20px;
-    }
-
+    .job { margin-bottom: 20px; }
     .job b { color: var(--teal); }
 
     /* Certificates */
@@ -151,14 +135,15 @@
       display: block;
       text-decoration: none;
       color: var(--text);
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius);
       padding: 10px 15px;
       margin-bottom: 10px;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
     .certs a:hover {
       background: linear-gradient(90deg, rgba(124,58,237,0.1), rgba(13,148,136,0.1));
+      transform: translateY(-2px);
     }
 
     /* Portfolio */
@@ -167,17 +152,15 @@
       border-radius: var(--radius);
       margin-bottom: 15px;
       transition: transform 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.06);
     }
-
     .portfolio img:hover { transform: scale(1.02); }
 
-    /* Contact */
     .contact-links a {
       display: inline-block;
       margin-right: 12px;
       margin-bottom: 10px;
     }
-
     footer {
       text-align: center;
       padding: 40px 0;
@@ -186,11 +169,9 @@
       font-size: 0.9rem;
     }
 
-    /* Animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* Animation */
+    [data-animate] { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
+    [data-animate].visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -208,8 +189,7 @@
   </nav>
 </header>
 
-<!-- Hero -->
-<section class="hero">
+<section class="hero" data-animate>
   <img src="images/myphoto.jpg" alt="Mohamed Karim photo">
   <div class="hero-content">
     <h2>Creative Director & Marketing Manager</h2>
@@ -219,16 +199,14 @@
   </div>
 </section>
 
-<!-- About -->
-<section id="about">
+<section id="about" data-animate>
   <div class="card">
     <h3>About Me</h3>
     <p>Marketing Manager & Creative Strategist with 20+ years of experience in advertising, branding, and digital marketing across Kuwait, Egypt, and the Middle East. Specialized in performance marketing with ROI-focused campaigns and strong expertise in GA4, GTM, HubSpot, and automation workflows.</p>
   </div>
 </section>
 
-<!-- Experience -->
-<section id="experience">
+<section id="experience" data-animate>
   <div class="card">
     <h3>Experience</h3>
     <div class="timeline">
@@ -245,8 +223,7 @@
   </div>
 </section>
 
-<!-- Certificates -->
-<section id="certificates">
+<section id="certificates" data-animate>
   <div class="card">
     <h3>Certificates</h3>
     <div class="certs">
@@ -262,8 +239,7 @@
   </div>
 </section>
 
-<!-- Portfolio -->
-<section id="portfolio">
+<section id="portfolio" data-animate>
   <div class="card portfolio">
     <h3>Portfolio Preview</h3>
     <img src="images/behance.png" alt="Behance Screenshot">
@@ -271,8 +247,7 @@
   </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
+<section id="contact" data-animate>
   <div class="card">
     <h3>Contact</h3>
     <p>Email: <a href="mailto:maroooo20034@gmail.com" style="color:var(--teal)">maroooo20034@gmail.com</a></p>
@@ -287,6 +262,14 @@
 <footer>
   © Mohamed Karim — Creative Direction & Marketing Strategy
 </footer>
+
+<script>
+  const elements = document.querySelectorAll('[data-animate]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  }, {threshold: 0.15});
+  elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
