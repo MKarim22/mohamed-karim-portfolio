@@ -187,11 +187,36 @@
     }
     .portfolio img:hover { transform: scale(1.02); }
 
-    .contact-links a {
-      display: inline-block;
-      margin-right: 12px;
-      margin-bottom: 10px;
-    }
+    .contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* ترتيب خاص للموبايل */
+@media (max-width: 600px) {
+  #contact .card {
+    text-align: center;
+  }
+
+  .contact-links {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .contact-links a {
+    width: 140px;
+    text-align: center;
+  }
+
+  #contact p {
+    word-break: break-all;
+    font-size: 0.95rem;
+  }
+}
     footer {
       text-align: center;
       padding: 40px 0;
