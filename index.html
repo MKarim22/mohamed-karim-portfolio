@@ -92,6 +92,18 @@
       color: var(--muted);
       margin-bottom: 20px;
     }
+    .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
     .btn {
       display: inline-block;
       background: linear-gradient(90deg, var(--violet), var(--teal));
@@ -132,15 +144,34 @@
 
     /* Certificates */
     .certs a {
-      display: block;
-      text-decoration: none;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  transition: background 0.25s ease, transform 0.25s ease;
+  font-weight: 500;
+}
+
+.certs a::after {
+  content: "🔗";
+  opacity: 0.4;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.certs a:hover {
+  background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(13,148,136,0.12));
+  transform: translateY(-2px);
+}
+
+.certs a:hover::after {
+  opacity: 1;
+  transform: rotate(10deg);
+}
     .certs a:hover {
       background: linear-gradient(90deg, rgba(124,58,237,0.1), rgba(13,148,136,0.1));
       transform: translateY(-2px);
@@ -168,6 +199,42 @@
       border-top: 1px solid rgba(255,255,255,0.05);
       font-size: 0.9rem;
     }
+    .menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--teal);
+}
+
+/* responsive menu */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    display: block;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 
     /* Animation */
     [data-animate] { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
@@ -178,15 +245,16 @@
 
 <header>
   <nav>
-    <h1>Mohamed Karim</h1>
-    <div>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <h1>Mohamed Karim</h1>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 </header>
 
 <section class="hero" data-animate>
@@ -194,8 +262,11 @@
   <div class="hero-content">
     <h2>Creative Director & Marketing Manager</h2>
     <p>Performance Marketing • Branding • Digital Media • Kuwait & MENA</p>
-    <a href="https://wa.me/96598995717" class="btn" target="_blank">WhatsApp</a>
-    <a href="https://www.linkedin.com/in/mohamed-karim-2605785a/" class="btn" target="_blank">LinkedIn</a>
+    <div class="hero-buttons">
+  <a href="https://wa.me/96598995717" class="btn" target="_blank">WhatsApp</a>
+  <a href="https://www.linkedin.com/in/mohamed-karim-2605785a/" class="btn" target="_blank">LinkedIn</a>
+  <a href="https://www.behance.net/moodboard/222444465/Mohamed-Kareem" class="btn" target="_blank">Portfolio</a>
+</div>
   </div>
 </section>
 
@@ -269,6 +340,11 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
   }, {threshold: 0.15});
   elements.forEach(el => observer.observe(el));
+</script>
+  <script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
 </script>
 
 </body>
